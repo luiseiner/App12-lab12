@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App12.View.Vista">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Entry
+                Grid.Row="0"
+                x:Name="textBoxTitle"
+                Placeholder="Título" />
+
+            <Entry
+                Grid.Row="1"
+                x:Name="textBoxDescription"
+                Placeholder="Descripción" />
+
+            <Picker
+                Grid.Row="2"
+                x:Name="comboBoxStatus"
+                Title="Estado">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Estado 1</x:String>
+                        <x:String>Estado 2</x:String>
+                        <x:String>Estado 3</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <StackLayout
+                Grid.Row="3"
+                Orientation="Vertical">
+
+                <Button
+                    x:Name="buttonSave"
+                    Text="Guardar" />
+
+                <Button
+                    x:Name="buttonList"
+                    Text="Listar" />
+
+            </StackLayout>
+
+
+            <ListView
+                Grid.Row="4"
+                HasUnevenRows="True"
+                x:Name="listViewItems" />
+            <ListView.ItemTemplate>
+                <DataTempalte>
+                    <ViewCell>
+                        <StackLayout Padding="15">
+                            <Label Text="{Binding Name}" FontSize="Medium" TextColor="Red"></Label>
+                           <Label Text="{Binding Description}"></Label>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTempalte>
+            </ListView.ItemTemplate>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
